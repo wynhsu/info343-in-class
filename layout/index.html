@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,14 +14,33 @@
     <!-- TODO: add page icon -->
     <link rel="icon" href="img/page-icon.png">
 </head>
+
 <body>
+    <nav>
+        <h2>Drawer</h2>
+    </nav>
+
     <header>
         <div class="container">
-            <h1>Flexbox Demo</h1>
+            <div>
+                <button>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="page-title">
+                <h1>Flexbox Demo</h1>
+                <p class="lead">Multi-column Layout</p>
+            </div>
             <div>
                 <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">
                     <!-- information SVG icon from material icons (https://material.io/icons/) -->
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                    </svg>
                 </a>
             </div>
         </div>
@@ -35,5 +55,11 @@
             <div class="col">6</div>
         </div>
     </main>
+    <script>
+        document.querySelector('header button').addEventListener('click', function() {
+            document.body.classList.toggle('drawer-open');
+        });
+    </script>
 </body>
+
 </html>

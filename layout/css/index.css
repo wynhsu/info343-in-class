@@ -15,7 +15,7 @@ body {
 
 /* TODO: constrain the width of <div class="container"> elements to a max of 1140px
 and keep the content horizontally-centered with 1rem of padding on left/right */
-.container {
+header .container {
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 1rem;
@@ -24,24 +24,30 @@ and keep the content horizontally-centered with 1rem of padding on left/right */
 /* TODO: set background image of the <header> to `header.jpg` in the `img` directory,
 and set text color to white, and ensure the height is at least 200px */
 header {
-    background-image: url("../img/header.jpg");
-    background-size: cover;
+    background-color: #034975;
     color: #FFF;
-    min-height: 200px;
 }
 
 /* TODO: set the font size of the <h1> in the <header> to 5rem
 and the font weight to 200 */
 header h1 {
     margin: 0;
-    font-size: 5rem;
+    font-size: 2rem;
     font-weight: 200;
+}
+
+header .page-title {
     flex: 1;
+}
+
+header .lead {
+    display: none;
+    /* visibility: hidden; */
 }
 
 /* TODO: set the height of the SVG icon to 3rem */
 header svg {
-    height: 3rem;
+    height: 2rem;
     fill: currentColor;
 }
 
@@ -64,10 +70,10 @@ header .container {
 }
 
 /* TODO: make the <div class="col"> elements layout side-by-side instead of stacked */
-.row {
+/* .row {
     display: flex;
-    /* flex-direction: row-reverse; */
-}
+    flex-direction: row-reverse;
+} */
 
 .col {
     background-color: #FF9800; 
@@ -78,7 +84,6 @@ header .container {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1;
 }
 
 /* TODO: set the background color of every-other <div class="col"> element 
@@ -87,10 +92,82 @@ to #E65100 so that we can see where the column begin/end */
     background-color: #E65100;
 }
 
-.col:nth-of-type(1) {
+/* .col:nth-of-type(1) {
     flex: 0 0 250px;
-}
+} */
 
 /* .col:nth-of-type(3) {
     order: 6;
 } */
+
+nav {
+    background-color: #034975;
+    color: #FFF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    transform: translateX(-250px);
+    transition: transform 500ms;
+}
+
+main, header {
+    transition: transform 500ms;
+}
+
+header button {
+    color: #FFF;
+    background-color: transparent;
+    border: none;
+}
+
+.drawer-open nav {
+    transform: translateX(0);
+}
+
+.drawer-open header, .drawer-open main {
+    transform: translateX(250px);
+    /* filter: blur(2px); */
+}
+
+@media (min-width: 768px) {
+    header {
+        background-image: url(../img/header.jpg);
+        background-size: cover;
+        min-height: 200px;
+    }
+
+    header h1 {
+        font-size: 5rem;
+    }
+
+    header svg {
+        height: 3rem;
+    }
+
+    header .lead {
+        display: block;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col {
+        flex-basis: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .col {
+        flex-basis: 33%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col {
+        flex: 1;
+    }
+}
