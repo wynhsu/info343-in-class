@@ -43,3 +43,86 @@ Box 4: explode (scale up while fading out)
 Box 5: shake (move side-to-side like shaking head no)
 Box 6: 3D flip
 */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes explode {
+    from {
+        /* transform: scale(); */
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: scale(5);
+    }
+}
+
+@keyframes dropOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(50vh);
+    }
+}
+
+@keyframes shake {
+    from, to {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes flip {
+    from {
+        transform: rotate3d(0, 1, 0, 0deg);
+    }
+    to {
+        transform: rotate3d(0, 1, 0, 360deg);        
+    }
+}
+
+.box:nth-of-type(1):hover {
+    animation: spin 1s linear infinite;
+}
+
+.box:nth-of-type(2):hover {
+    animation: fadeOut 1s;
+}
+
+.box:nth-of-type(3):hover {
+    animation: explode 1s;
+}
+
+.box:nth-of-type(4):hover {
+    animation: dropOut 1s;
+}
+
+.box:nth-of-type(5):hover {
+    animation: shake 500ms;
+}
+
+.box:nth-of-type(6):hover {
+    animation: flip 750ms linear infinite;
+}
