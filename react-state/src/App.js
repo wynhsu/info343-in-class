@@ -48,12 +48,12 @@ class App extends Component {
       }
       return task;
     })
-    this.setState({tasks: newTasks});
+    this.setState({ tasks: newTasks });
   }
 
   handlePurge() {
     let filteredTask = this.state.tasks.filter(task => !task.done);
-    this.setState({tasks: filteredTask});
+    this.setState({ tasks: filteredTask });
   }
 
   render() {
@@ -70,19 +70,20 @@ class App extends Component {
         <h2>Tasks</h2>
         <form onSubmit={evt => this.handleSubmit(evt)}>
           <input type='text' className='form-control' value={this.state.newTaskTitle}
-          onInput={(evt) => this.setState({
-            newTaskTitle: evt.target.value
-          })}/>
+            onInput={(evt) => this.setState({
+              newTaskTitle: evt.target.value
+            })} />
         </form>
         <ul>
-          {this.state.tasks.map(task => <li key={task.key} 
-            onClick={() => this.toggleDone(task)}
-            style={task.done ? doneTaskStyles : undefined}>
-            {task.title}
+          {this.state.tasks.map(task =>
+            <li key={task.key}
+              onClick={() => this.toggleDone(task)}
+              style={task.done ? doneTaskStyles : undefined}>
+              {task.title}
             </li>)}
         </ul>
 
-        <button className='btn btn-primary' 
+        <button className='btn btn-primary'
           onClick={() => this.handlePurge()}>
           Purge Completed
         </button>

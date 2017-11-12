@@ -16,7 +16,7 @@ export default class Card extends React.Component {
                         {this.props.title}
                     </h4>
                     <div className='card-text'>
-                        {this.props.children /*children referes to anything within hte element*/} 
+                        {this.props.children /*children referes to anything within the element*/} 
                     </div>
                 </div>
             </div>
