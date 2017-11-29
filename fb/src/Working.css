@@ -1,0 +1,15 @@
+@keyframes pulse {
+    to, from {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+.working {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    animation: pulse 1s infinite;
+}
